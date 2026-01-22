@@ -1,69 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Theodore Vairaktaris | Fullstack Developer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theodore Vairaktaris | Fullstack Developer</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Theodore Vairaktaris - Fullstack Developer" />
+    <meta property="og:description" content="Junior Fullstack Developer specializing in React, Node.js, and TypeScript. Check out my projects!" />
+    <meta property="og:url" content="https://teovaira.github.io/" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.1);
+        }
+
+        .project-card {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .project-links {
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: #48bb78;
+        }
+
+        .btn-secondary:hover {
+            background: #38a169;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .contact-btn {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .tagline {
+                font-size: 1rem;
+            }
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
+    <div class="container">
+        <header>
+            <h1>👋 Hi, I'm Theodore Vairaktaris</h1>
+            <p class="tagline">Junior Fullstack Developer | MERN Stack Specialist | Career Changer</p>
+        </header>
 
-  
-  <header class="bg-gray-900 text-white py-8 text-center">
-    <h1 class="text-3xl font-bold">Theodore Vairaktaris</h1>
-    <p class="mt-2 text-lg">Junior Fullstack Developer</p>
-    <p class="mt-2 text-sm">
-      <a href="https://github.com/teovaira" class="text-blue-400 hover:underline">GitHub</a> |
-      <a href="https://www.linkedin.com/in/theodore-vairaktaris-45181417b/" class="text-blue-400 hover:underline">LinkedIn</a> |
-      <a href="mailto:t.vairaktaris@gmail.com" class="text-blue-400 hover:underline">Email</a>
-    </p>
-  </header>
+        <div class="main-content">
+            <!-- About Section -->
+            <section class="section">
+                <h2>About Me</h2>
+                <p class="about-text">
+                    I'm a <strong>fullstack developer</strong> who transitioned from 15 years of team leadership 
+                    and client service to building impactful web applications. Currently expanding my skills at 
+                    <strong>Zone01 Athens</strong> after earning a competitive scholarship.
+                </p>
+                <p class="about-text">
+                    I specialize in the <strong>MERN stack</strong> (MongoDB, Express, React, Node.js) with TypeScript, 
+                    and bring unique strengths from my hospitality background: user empathy, system thinking, 
+                    crisis management, and team coordination.
+                </p>
+            </section>
 
-  
-  <main class="max-w-3xl mx-auto px-4 py-10">
-    
-   
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold border-b pb-1 mb-4">About Me</h2>
-      <p>
-        I'm a junior fullstack developer passionate about creating responsive and clean web applications using the MERN stack. 
-        I’m currently completing the Coding Factory 7 program, and I’ve built multiple projects using modern JavaScript technologies.
-      </p>
-    </section>
+            <!-- Tech Stack Section -->
+            <section class="section">
+                <h2>Tech Stack</h2>
+                <div class="tech-stack">
+                    <span class="tech-badge">JavaScript (ES6+)</span>
+                    <span class="tech-badge">TypeScript</span>
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Express</span>
+                    <span class="tech-badge">MongoDB</span>
+                    <span class="tech-badge">Go</span>
+                    <span class="tech-badge">Tailwind CSS</span>
+                    <span class="tech-badge">Git & GitHub</span>
+                    <span class="tech-badge">REST APIs</span>
+                    <span class="tech-badge">OAuth 2.0</span>
+                    <span class="tech-badge">JWT</span>
+                    <span class="tech-badge">Vercel</span>
+                    <span class="tech-badge">Jira</span>
+                </div>
+            </section>
 
-    
-    <section>
-      <h2 class="text-xl font-semibold border-b pb-1 mb-4">Featured Projects</h2>
-      <ul class="space-y-6">
-        <li>
-          <p class="font-semibold">React ToDo App</p>
-          <p>
-            A full-featured ToDo application built with React and Tailwind. 
-            <a href="https://github.com/teovaira/cf-react-todo-app" class="text-blue-600 hover:underline" target="_blank">View on GitHub</a>
-          </p>
-        </li>
-        <li>
-          <p class="font-semibold">Node.js Product API</p>
-          <p>
-            Learning about RESTful API with Express, MongoDB, Swagger, and Jest for testing. 
-            <a href="https://github.com/teovaira/CF7-Node" class="text-blue-600 hover:underline" target="_blank">View on GitHub</a>
-          </p>
-        </li>
-        <li>
-          <p class="font-semibold">Goal Tracker App</p>
-          <p>
-            A fullstack app for managing goals by implementing completions status, filtering and editing. 
-            <a href="https://github.com/teovaira/goal-app" class="text-blue-600 hover:underline" target="_blank">View on GitHub</a>
-          </p>
-        </li>
-      </ul>
-    </section>
-  </main>
+            <!-- Projects Section -->
+            <section class="section">
+                <h2>Featured Projects</h2>
+                
+                <div class="project-card">
+                    <h3 class="project-title">🎯 Goal Tracker</h3>
+                    <p class="project-description">
+                        Full-stack task management application with OAuth authentication. Users can create, 
+                        organize, and track personal goals with secure data persistence.
+                    </p>
+                    <p class="project-description">
+                        <strong>Tech:</strong> React, TypeScript, Node.js, Express, MongoDB, OAuth 2.0, JWT, Tailwind CSS
+                    </p>
+                    <div class="project-links">
+                        <a href="https://goal-app-wheat.vercel.app/" target="_blank" class="btn">Live Demo</a>
+                        <a href="https://github.com/teovaira/goal-app" target="_blank" class="btn btn-secondary">View Code</a>
+                    </div>
+                </div>
 
-  
-  <footer class="text-center text-sm text-gray-600 py-6">
-    &copy; 2025 Theodore Vairaktaris | Athens, Greece
-  </footer>
+                <!-- Add more projects here as you build them -->
+            </section>
 
+            <!-- Experience Highlights -->
+            <section class="section">
+                <h2>Background</h2>
+                <p class="about-text">
+                    <strong>🎓 Zone01 Athens</strong> - Software Development (Current)<br>
+                    Earned competitive scholarship through rigorous selection process. Learning Go, algorithms, and collaborative development.
+                </p>
+                <p class="about-text">
+                    <strong>🎓 Coding Factory 7</strong> - Fullstack Bootcamp (2023-2024)<br>
+                    Intensive 12-month program covering MERN stack. Capstone: Goal Tracker application.
+                </p>
+                <p class="about-text">
+                    <strong>💼 Médecins Sans Frontières</strong> - Referral Coordinator (2024)<br>
+                    Coordinated patient referrals, managed sensitive data, and ensured operational excellence.
+                </p>
+                <p class="about-text">
+                    <strong>💼 Hospitality Management</strong> - 15 years (2006-2024)<br>
+                    Led teams, trained 50+ employees, and optimized high-pressure operations.
+                </p>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section">
+                <h2>Let's Connect!</h2>
+                <p class="about-text" style="text-align: center;">
+                    I'm actively seeking junior fullstack developer opportunities. Let's build something great together!
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:t.vairaktaris@gmail.com" class="btn contact-btn">📧 Email Me</a>
+                    <a href="https://www.linkedin.com/in/theovairaktaris" target="_blank" class="btn contact-btn">💼 LinkedIn</a>
+                    <a href="https://github.com/teovaira" target="_blank" class="btn contact-btn btn-secondary">💻 GitHub</a>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>© 2025 Theodore Vairaktaris | Built with HTML, CSS & ❤️ | Athens, Greece 🇬🇷</p>
+        </footer>
+    </div>
 </body>
 </html>
