@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theodore Vairaktaris | Fullstack Developer</title>
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Theodore Vairaktaris - Fullstack Developer" />
-    <meta property="og:description" content="Junior Fullstack Developer specializing in React, Node.js, and TypeScript. Check out my projects!" />
-    <meta property="og:url" content="https://teovaira.github.io/" />
-    
     <style>
         * {
             margin: 0;
@@ -20,102 +15,98 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
+            color: #1e293b;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            position: relative;
         }
 
-        /* Navigation */
-        nav {
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 1000;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1), transparent),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
         }
 
-        .nav-content {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #666;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #1a1a1a;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 40px 60px;
+            padding: 40px 0;
         }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 80px 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-subtitle {
-            font-size: 1rem;
-            color: #0066ff;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+        .hero-label {
+            font-size: 0.9rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            margin-bottom: 20px;
+            opacity: 0.9;
         }
 
         .hero-title {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .hero-description {
             font-size: 1.3rem;
-            color: #666;
+            color: #ffffff;
+            opacity: 0.95;
             max-width: 700px;
             margin-bottom: 40px;
             line-height: 1.8;
         }
 
-        .cta-buttons {
+        .hero-buttons {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 14px 32px;
-            border-radius: 8px;
+            padding: 16px 36px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
@@ -123,36 +114,32 @@
             display: inline-block;
         }
 
-        .btn-primary {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #333;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .btn-secondary {
+        .btn-white {
             background: white;
-            color: #1a1a1a;
-            border: 2px solid #1a1a1a;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-secondary:hover {
-            background: #1a1a1a;
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.2);
             color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
-        /* Section Styling */
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* Sections */
         section {
-            padding: 100px 40px;
-        }
-
-        .section-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 100px 0;
         }
 
         .section-header {
@@ -161,86 +148,97 @@
         }
 
         .section-label {
-            font-size: 0.9rem;
-            color: #0066ff;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 15px;
+            opacity: 0.9;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a1a1a;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Tech Stack Grid */
-        .tech-grid {
+        /* Content Cards */
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .tech-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: 600;
-            color: #1a1a1a;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .tech-item:hover {
-            border-color: #0066ff;
-            transform: translateY(-5px);
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            gap: 40px;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
             margin-top: 60px;
         }
 
+        .text-content p {
+            font-size: 1.1rem;
+            color: #ffffff;
+            opacity: 0.95;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .stats-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 30px;
+        }
+
+        .stat-item {
+            margin-bottom: 30px;
+        }
+
+        .stat-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            color: #ffffff;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        /* Project Card */
         .project-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.4s;
         }
 
         .project-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transform: translateY(-5px);
-        }
-
-        .project-content {
-            padding: 40px;
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 20px;
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.18);
         }
 
         .project-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: #1a1a1a;
+            color: #ffffff;
+            margin-bottom: 15px;
         }
 
         .project-description {
-            color: #666;
-            margin-bottom: 20px;
+            color: #ffffff;
+            opacity: 0.9;
+            margin-bottom: 25px;
             line-height: 1.8;
         }
 
@@ -252,75 +250,53 @@
         }
 
         .tech-tag {
-            background: #f0f0f0;
-            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
-            color: #666;
+            color: #ffffff;
             font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .project-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        /* About Section */
-        .about-content {
+        /* Tech Grid */
+        .tech-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.9;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-        }
-
-        .stats-grid {
-            display: grid;
-            gap: 30px;
-        }
-
-        .stat-item {
-            background: #f8f9fa;
+        .tech-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0066ff;
-            display: block;
-            margin-bottom: 5px;
+        .tech-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .stat-label {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #f8f9fa;
-        }
-
+        /* Contact */
         .contact-content {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 60px auto 0;
         }
 
         .contact-text {
             font-size: 1.2rem;
-            color: #666;
+            color: #ffffff;
+            opacity: 0.95;
             margin-bottom: 40px;
             line-height: 1.8;
         }
@@ -334,157 +310,137 @@
 
         /* Footer */
         footer {
-            background: #1a1a1a;
-            color: white;
+            padding: 40px 0;
             text-align: center;
-            padding: 40px;
         }
 
         footer p {
-            color: #999;
+            color: #ffffff;
+            opacity: 0.8;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
             
-            .hero-description {
-                font-size: 1.1rem;
+            .hero-card {
+                padding: 40px 30px;
             }
 
-            .about-content {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
 
-            .nav-links {
-                display: none;
+            .container {
+                padding: 0 20px;
             }
 
             section {
-                padding: 60px 20px;
+                padding: 60px 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-content">
-            <div class="logo">TV</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <p class="hero-subtitle">Junior Fullstack Developer</p>
-            <h1 class="hero-title">Building user-centric<br>web applications</h1>
-            <p class="hero-description">
-                Career-changing developer with 15 years of leadership experience, 
-                now specializing in the MERN stack. Currently expanding skills at Zone01 Athens.
-            </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <div class="container">
+            <div class="hero-card">
+                <p class="hero-label">Fullstack Developer</p>
+                <h1 class="hero-title">Theodore Vairaktaris</h1>
+                <p class="hero-description">
+                    Building user-centric web applications with the MERN stack. Career-changer with 
+                    15 years of leadership experience, now bringing unique perspectives to software development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-white">View My Work</a>
+                    <a href="#contact" class="btn btn-glass">Get In Touch</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about">
-        <div class="section-content">
+        <div class="container">
             <div class="section-header">
                 <p class="section-label">About Me</p>
-                <h2 class="section-title">Combining Technical Skills with Real-World Experience</h2>
+                <h2 class="section-title">Career-Changer<br>with Real Impact</h2>
             </div>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a <strong>fullstack developer</strong> who transitioned from 15 years of team leadership 
-                        and client service to building impactful web applications. I specialize in the 
-                        <strong>MERN stack</strong> (MongoDB, Express, React, Node.js) with TypeScript.
-                    </p>
-                    <p>
-                        After completing an intensive 12-month bootcamp at Coding Factory 7, I earned a competitive 
-                        scholarship to <strong>Zone01 Athens</strong> through a rigorous selection process including 
-                        qualifying games, technical interviews, and a demanding 25-day coding intensive.
-                    </p>
-                    <p>
-                        My background in hospitality management and humanitarian work brings unique strengths: 
-                        <strong>user empathy from client service</strong>, <strong>system thinking from coordinating complex workflows</strong>, 
-                        and <strong>crisis management from high-pressure environments</strong>.
-                    </p>
-                </div>
-                
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Years Leadership Experience</span>
+            <div class="glass-card">
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>
+                            I'm a <strong>fullstack developer</strong> who transitioned from 15 years of team 
+                            leadership to building web applications. I completed an intensive 12-month bootcamp 
+                            at Coding Factory 7 and earned a competitive scholarship to Zone01 Athens.
+                        </p>
+                        <p>
+                            My background brings unique strengths: user empathy from client service, system 
+                            thinking from managing complex workflows, and crisis management from high-pressure 
+                            environments like coordinating medical referrals at Médecins Sans Frontières.
+                        </p>
+                        <p>
+                            Currently learning Go, algorithms, and advanced software engineering through the 
+                            Zone01 peer-to-peer program.
+                        </p>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">271+</span>
-                        <span class="stat-label">GitHub Commits</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Committed to Growth</span>
+                    
+                    <div class="stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">271+</span>
+                            <span class="stat-label">Git Commits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Zone01</span>
+                            <span class="stat-label">Scholar</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
-        <div class="section-content">
+        <div class="container">
             <div class="section-header">
                 <p class="section-label">Portfolio</p>
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Featured Work</h2>
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3 class="project-title">🎯 Goal Tracker</h3>
-                        </div>
-                        <p class="project-description">
-                            Full-stack task management application with OAuth authentication. Users can create, 
-                            organize, and track personal goals with secure data persistence. Built as my capstone 
-                            project for Coding Factory 7 bootcamp.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">OAuth 2.0</span>
-                            <span class="tech-tag">JWT</span>
-                            <span class="tech-tag">Tailwind CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://goal-app-wheat.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
-                            <a href="https://github.com/teovaira/goal-app" target="_blank" class="btn btn-secondary">View Code</a>
-                        </div>
-                    </div>
+            <div class="project-card">
+                <h3 class="project-title">🎯 Goal Tracker</h3>
+                <p class="project-description">
+                    Full-stack MERN application with OAuth authentication, enabling users to create, organize, 
+                    and track personal goals. Features secure authentication, RESTful API, and responsive design.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">OAuth 2.0</span>
+                    <span class="tech-tag">JWT</span>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://goal-app-wheat.vercel.app/" target="_blank" class="btn btn-white">Live Demo</a>
+                    <a href="https://github.com/teovaira/goal-app" target="_blank" class="btn btn-glass">View Code</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" style="background: #f8f9fa;">
-        <div class="section-content">
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
             <div class="section-header">
                 <p class="section-label">Technical Skills</p>
                 <h2 class="section-title">Tech Stack</h2>
@@ -499,19 +455,17 @@
                 <div class="tech-item">MongoDB</div>
                 <div class="tech-item">Go</div>
                 <div class="tech-item">Tailwind CSS</div>
-                <div class="tech-item">Git & GitHub</div>
+                <div class="tech-item">Git</div>
                 <div class="tech-item">REST APIs</div>
-                <div class="tech-item">OAuth 2.0</div>
+                <div class="tech-item">OAuth</div>
                 <div class="tech-item">JWT</div>
-                <div class="tech-item">Vercel</div>
-                <div class="tech-item">Jira</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-content">
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
             <div class="section-header">
                 <p class="section-label">Get In Touch</p>
                 <h2 class="section-title">Let's Work Together</h2>
@@ -519,13 +473,12 @@
             
             <div class="contact-content">
                 <p class="contact-text">
-                    I'm actively seeking junior fullstack developer opportunities in Athens or remote positions 
-                    across Europe. Let's connect and build something great together!
+                    I'm actively seeking junior fullstack developer opportunities in Athens or remote across Europe.
                 </p>
                 <div class="contact-buttons">
-                    <a href="mailto:t.vairaktaris@gmail.com" class="btn btn-primary">📧 Email Me</a>
-                    <a href="https://www.linkedin.com/in/theovairaktaris" target="_blank" class="btn btn-secondary">💼 LinkedIn</a>
-                    <a href="https://github.com/teovaira" target="_blank" class="btn btn-secondary">💻 GitHub</a>
+                    <a href="mailto:t.vairaktaris@gmail.com" class="btn btn-white">📧 Email</a>
+                    <a href="https://www.linkedin.com/in/theovairaktaris" target="_blank" class="btn btn-glass">💼 LinkedIn</a>
+                    <a href="https://github.com/teovaira" target="_blank" class="btn btn-glass">💻 GitHub</a>
                 </div>
             </div>
         </div>
@@ -533,7 +486,9 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Theodore Vairaktaris • Built with HTML, CSS & ❤️ • Athens, Greece 🇬🇷</p>
+        <div class="container">
+            <p>© 2025 Theodore Vairaktaris • Athens, Greece 🇬🇷</p>
+        </div>
     </footer>
 </body>
 </html>
